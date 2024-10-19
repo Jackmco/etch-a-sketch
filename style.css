@@ -1,0 +1,17 @@
+#grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    border: solid red 2px;
+    justify-content: center;
+}
+
+.individualSquare {
+    display: flex;
+    border: solid black 1px;
+    height: 30px;
+    width: 30px;
+}
+
+.grid-row {
+    display: flex;
+}
