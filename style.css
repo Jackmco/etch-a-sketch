@@ -1,36 +1,32 @@
 #grid-container {
     display: flex;
     flex-direction: column;
-    /* flex-wrap: wrap; */
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    justify-self: center;
     gap: 0px;
-    max-width: 960px;
-    border: solid green 6px;
+    height: 640px;
+    width: 640px;
+    border: solid black 2px;
+    overflow: hidden;
 }
 
 .grid-row {
     display: flex;
+    gap: 0px;
     flex: 1 1 auto;
-    border: solid red 1px;
 }
 
 .individualSquare {
     display: flex;
     border: solid black 1px;
     flex: 1 1 auto;
-    height: 5px;
-    width: 5px;
 }
-
 
 
 #button-container {
     display: flex;
     margin-bottom: 50px;
     justify-content: space-evenly;
-    margin: 0px 100px 25px 100px;
+    margin: 0px 100px 10px 100px;
 }
 
 #new-custom-grid-button {

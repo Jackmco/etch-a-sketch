@@ -9,6 +9,7 @@ gridSquares = document.getElementsByClassName("individualSquare")
 gridContainer = document.getElementById("grid-container")
 
 function createGrid(gridSize) {
+    let delta = .1
     for (i=1; i <= gridSize; i++) { 
         grid = document.getElementById('grid-container')
         gridRow = createRow(i, gridSize) // gridSize equals how many squares should be in a row
@@ -17,14 +18,21 @@ function createGrid(gridSize) {
     console.log("Grid created")
     for (i=0; i < gridSquares.length; i++) { 
         gridSquares[i].addEventListener('mouseover', (changeColor) => {
-            changeColor.target.style.background = "black"
-        })
+            let randomRedValue = getRGBInteger(1,255)
+            let randomGreenValue = getRGBInteger(1,255)
+            let randomBlueValue = getRGBInteger(1,255)
+            randomColorValue = "rgb(" + randomRedValue + ", " + randomGreenValue + ", " + randomBlueValue + ")"
+            changeColor.target.style.background = randomColorValue
+            changeColor.target.style.opacity = Number(changeColor.target.style.opacity) + 0.1   
+            console.log(changeColor.target.style.opacity)         
+            })
     }
     console.log("Hover event listener set")
 }
 
 function createSquare() {
     let individualSquare = Object.assign(document.createElement("div"), { className: 'individualSquare' })
+    individualSquare.style.background = "white"
     return individualSquare
 }
 
@@ -66,3 +74,7 @@ newStandardGridButton.addEventListener("click", (makeStandardGrid) => {
     gridContainer.innerHTML = ""
     createGrid(standardGridRowCount)
 })
+
+function getRGBInteger(min, max) {
+    return String(Math.floor(Math.random() * (max - min) ) + min)
+  }
